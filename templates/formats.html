@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>Tube Himu</title>
+
+{% endblock %}
+
+{% block body %}
+
+<!-- Header -->
+<header id="header" class="header">
+    <div class="header-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="text-container">
+                        <h1><span class="turquoise">TubeHimu By </span>Foyez Rabbi</h1>
+                        <p class="p-large text-success font-weight-bold">Full Stack Web Developer | Software
+                            Developer
+                        </p>
+                        <a class="btn-solid-lg page-scroll" href="#download">See Formats</a>
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+                <div class="col-lg-6">
+                    <div class="image-container">
+                        <img class="img-thumbnail rounded-circle"
+                            src="{{url_for('static', filename = 'images/s1.svg')}}" alt="logo">
+                    </div> <!-- end of image-container -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of header-content -->
+</header> <!-- end of header -->
+<!-- end of header -->
+<!-- Download -->
+<div id="download" class="form-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 ">
+                <iframe src="{{vFormats[-1]['url']}}" frameborder="0" height="300px" width="100%"></iframe>
+            </div>
+
+
+            <div class="col-lg-8 text-center">
+                        <table class="table table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                            <th scope="col">Resolution Index (Higher is better)</th>
+                            <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for vf in vFormats : %}
+                            {% if vf['width']==None or vf['ext']=='mp4' : %}
+                                <form id="downloadForm" action="/download" method="POST" data-toggle="validator" data-focus="false"
+                                    class="text-center">               
+                                    <tr>
+                                        <td><input value="{{tLink}}" type="hidden" name="fUrl"><p class="alert alert-primary">{{vf['ext']}}</p></td>
+                                        <td><input value="{{vFormats.index(vf)}}" type="hidden" name="fId"> <input type="submit" value="Download" class="btn btn-success" ></td>
+                                    </tr>
+                                </form>
+                            {%endif%}
+                        {% endfor %}
+                <!-- <form id="downloadForm" action="/downloadBest" method="POST" data-toggle="validator" data-focus="false"
+                    class="text-center"> 
+                        <tr>
+                            <td><input value="{{tLink}}" type="hidden" name="fUrl"><p class="alert alert-primary">Best Video 😎</p></td>
+                            <td><input value="999" type="hidden" name="fId"> <input type="submit" value="Download" class="btn btn-success" ></td>
+                        </tr>
+                        </tbody>
+                </form> -->
+                </table>
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of container -->
+</div> <!-- end of form-2 -->
+<!-- end of download -->
+
+<!-- About -->
+<div id="about" class="basic basic-4 bg-white">
+    <div class="container">
+        <div class="row text-center justify-content-between">
+            <div class="col-lg-12">
+                <h2 class="text text-info">Websites Currently Supported : </h2>
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+        <div class="row">
+            <div class="col-lg-12">
+
+                <!-- Websites -->
+                <div class="team-member">
+                    <!-- Youtube -->
+                    <div class="image-wrapper">
+                        <img class="img-fluid" src="{{url_for('static', filename = 'images/youtube-svg.svg')}}"
+                            alt="alternative">
+                    </div> <!-- end of image-wrapper -->
+                    <p class="p-large text-danger"><strong>Youtube</strong></p>
+                </div> <!-- end of Websites -->
+
+                <div class="team-member">
+                    <!-- Facebook -->
+                    <div class="image-wrapper">
+                        <img class="img-fluid" src="{{url_for('static', filename = 'images/facebook-svg.svg')}}"
+                            alt="alternative">
+                    </div> <!-- end of image-wrapper -->
+                    <p class="p-large text text-info"><strong>Facebook</strong></p>
+                </div> <!-- end of Websites -->
+                <!-- end of team member -->
+
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of container -->
+</div> <!-- end of basic-4 -->
+<!-- end of about -->
+
+
+{% endblock %}

@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>TubeHimu</title>
+
+{% endblock %}
+
+{% block body %}
+
+<!-- Header -->
+<header id="header" class="header">
+    <div class="header-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="text-container">
+                        <h1><span class="turquoise">TubeHimu By </span>Foyez Rabbi</h1>
+                        <p class="p-large text-success font-weight-bold">Full Stack Web Developer | Software
+                            Developer
+                        </p>
+                        <a class="btn-solid-lg page-scroll" href="#download">Lets Download</a>
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+                <div class="col-lg-6">
+                    <div class="image-container">
+                        <img class="img-thumbnail rounded-circle"
+                            src="{{url_for('static', filename = 'images/s2.svg')}}" alt="logo">
+                    </div> <!-- end of image-container -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of header-content -->
+</header> <!-- end of header -->
+<!-- end of header -->
+<!-- Download -->
+<div id="download" class="form-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <h3 class="text-info text-center">Copy & Paste Video URL <br>Here</h3>
+            </div>
+
+
+            <div class="col-lg-8 text-center">
+                <h4 class="text-center alert-heading">Enter Your Download Link Here</h4 class="text-center">
+                <!-- Download Form -->
+                <form id="downloadForm" action="/formats" method="POST" data-toggle="validator" data-focus="false"
+                    class="text-center">
+                    <div class="form-group">
+                        <input type="text" name="url" class="form form-control" id="d_link"
+                            placeholder="Enter Download Link Here*" required>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div>
+                        <input type="submit" value="Show Available Formats" class="btn btn-success">
+                    </div>
+                </form>
+                <!-- end of Download Form -->
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of container -->
+</div> <!-- end of form-2 -->
+<!-- end of download -->
+
+<!-- About -->
+<div id="about" class="basic basic-4 bg-white">
+    <div class="container">
+        <div class="row text-center justify-content-between">
+            <div class="col-lg-12">
+                <h2 class="text text-info">Websites Currently Supported : </h2>
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+        <div class="row">
+            <div class="col-lg-12">
+
+                <!-- Websites -->
+                <div class="team-member">
+                    <!-- Youtube -->
+                    <div class="image-wrapper">
+                        <img class="img-fluid" src="{{url_for('static', filename = 'images/youtube-svg.svg')}}"
+                            alt="alternative">
+                    </div> <!-- end of image-wrapper -->
+                    <p class="p-large text-danger"><strong>Youtube</strong></p>
+                </div> <!-- end of Websites -->
+
+                <div class="team-member">
+                    <!-- Facebook -->
+                    <div class="image-wrapper">
+                        <img class="img-fluid" src="{{url_for('static', filename = 'images/facebook-svg.svg')}}"
+                            alt="alternative">
+                    </div> <!-- end of image-wrapper -->
+                    <p class="p-large text text-info"><strong>Facebook</strong></p>
+                </div> <!-- end of Websites -->
+                <!-- end of team member -->
+
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of container -->
+</div> <!-- end of basic-4 -->
+<!-- end of about -->
+
+
+{% endblock %}
